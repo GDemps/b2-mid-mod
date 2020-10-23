@@ -1,0 +1,18 @@
+<%= @mechanic.name %><br>
+<%= @mechanic.years_of_experience %><br>
+<br>
+Current rides they're working on:
+<% @mechanic.rides.each do |ride| %>
+<%= ride.name %><br>
+<% end %>
+Add a ride to workload:<br>
+<%= form_tag "/mechanics/#{@mechanic.id}", method: :get  do %>
+  <%= label_tag "Search" %>
+  <%= search_field_tag :search, Ride.find_by(id: params[:search])  %>
+  <%= submit_tag "Submit" %>
+  <% @mechanic.rides.each do |ride| %>
+      <li>
+        <%= link_to ride.name, "/rides/#{ride.id}" %>
+      </li>
+  <% end %>
+  <% end %>

@@ -1,7 +1,8 @@
-<%= @amusement_park.name %>
-Admissions: <%= @amusement_park.admission_price %>
-
+<%= @amusement_park.name %><br>
+Admissions: <%= @amusement_park.admission_price %><br>
+<br>
+Rides:<br>
 <% @amusement_park.rides.each do |ride| %>
 <%= ride.name %><br>
-<% end %>
+<% end %><br>
 Average Thrill Rating of Rides: <%= @amusement_park.avg_thrill_rating %>
